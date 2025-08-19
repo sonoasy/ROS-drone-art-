@@ -19,15 +19,16 @@
 
 ## 구조도
 
-1️⃣ **roscore 실행** (ROS Master)
-│
-├─ 2️⃣ **listener.py 실행** (Subscriber 등록)
-│     │
-│     └─ 'chatter' 토픽 구독
-│
-└─ 3️⃣ **talker.py 실행** (Publisher 등록)
-      │
-      └─ 4️⃣ 메시지 발행 → Subscriber로 직접 전송 → 콜백 함수에서 콘솔 출력
-
+```bash
+1️⃣ roscore (ROS Master)  
+│  
+├─ 2️⃣ 연결 정보 제공 ──► 3️⃣ talker.py (Publisher)  
+│                          │  
+│                          └─ 메시지 발행 → 'chatter' 토픽  
+│  
+└─ 4️⃣ 연결 정보 제공 ──► listener.py (Subscriber)  
+                             │  
+                             └─ 'chatter' 토픽 수신 → 콜백 함수 실행
+```
 
 
